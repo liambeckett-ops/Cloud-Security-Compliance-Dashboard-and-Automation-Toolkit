@@ -1,39 +1,32 @@
-# Cloud Security Compliance Dashboard & Automation Toolkit
+# Cloud Security Compliance Dashboard and Automation Toolkit
 
-A showcase project for Security Analyst job applications. This project demonstrates a cloud security compliance dashboard and automation toolkit using mock data (no real credentials or sensitive information).
+## Overview
+This project provides a dashboard and automation toolkit for monitoring and managing cloud security compliance. It includes a FastAPI backend and a simple JavaScript frontend.
 
-## Features
-- FastAPI backend with endpoints for compliance reports
-- Mock data for AWS, Azure, and GCP services
-- Ready for frontend integration (React, Vue, or plain HTML/JS)
+## Structure
+- `Backend/`: FastAPI backend API
+- `Frontend/`: Dashboard web interface
 
-## Backend Quickstart
-1. Navigate to the backend directory:
-   ```powershell
-   cd "Personal Projects\Active Projects\Could Security Compliance Dashboard and Automation Toolkit\backend"
-   ```
+## Backend Setup
+1. Navigate to the `Backend` folder.
 2. Install dependencies:
-   ```powershell
-   pip install -r requirements.txt
-   ```
-3. Run the FastAPI server:
-   ```powershell
-   uvicorn main:app --reload
-   ```
-4. Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for the interactive API docs.
+	```sh
+	pip install -r requirements.txt
+	```
+3. Run the API server:
+	```sh
+	uvicorn main:app --reload
+	```
 
-## Frontend
-- The `frontend` folder is ready for your dashboard UI code.
-- Fetch data from `/api/compliance` and display it in a dashboard.
+## Frontend Setup
+1. Navigate to the `Frontend` folder.
+2. Open `index.html` in your web browser.
+3. The dashboard will fetch and display compliance results from the backend.
 
-## Why Mock Data?
-- This project is designed for job applications and portfolio use.
-- No real cloud credentials or sensitive data are used.
+## Usage
+- View compliance checks and reports in the dashboard.
+- Backend API endpoints can be extended for automation and integrations.
 
-## Example API Endpoints
-- `GET /api/compliance` — List all compliance reports
-- `GET /api/compliance/{report_id}` — Get details for a specific report
-
----
-
-*Feel free to expand this project with more endpoints, automation scripts, or a frontend dashboard!*
+## Troubleshooting
+- Ensure the backend is running and accessible at `http://localhost:8000`.
+- Check browser console and backend logs for errors.

@@ -1,17 +1,20 @@
-# Cloud Security Compliance Dashboard & Automation Toolkit (Frontend)
+# Cloud Security Compliance Dashboard - Frontend
 
-This folder is intended for the frontend code of your Security Compliance Dashboard project. You can use any frontend framework (React, Vue, plain HTML/JS) to visualize compliance data from the backend API.
+## Overview
+This is the frontend for the Cloud Security Compliance Dashboard and Automation Toolkit. It displays compliance check results fetched from the backend API.
 
-## Getting Started
-- The backend FastAPI server exposes endpoints at `/api/compliance`.
-- You can fetch and display compliance reports in a dashboard UI.
+## Setup
+1. Make sure the backend API is running (see backend README for details).
+2. Open `index.html` in your web browser.
+3. The dashboard will automatically fetch and display compliance results.
 
-## Example Features
-- List all compliance reports
-- Show details for each report
-- Visualize compliance status (e.g., green/red indicators)
-- Filter by cloud provider or service
+## Files
+- `index.html`: Main dashboard page.
+- `app.js`: JavaScript to fetch and display compliance data.
 
----
+## Customization
+You can style the dashboard by editing the CSS in `index.html` or add new features in `app.js`.
 
-*This is a placeholder. Add your frontend code here when ready!*
+## Troubleshooting
+- Ensure the backend is running and accessible at `http://localhost:8000/compliance`.
+- Check browser console for errors if data does not appear.

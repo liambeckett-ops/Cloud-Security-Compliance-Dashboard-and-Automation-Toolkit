@@ -1,30 +1,29 @@
-async function fetchComplianceReports() {
-    const response = await fetch('http://127.0.0.1:8000/api/compliance');
-    const data = await response.json();
-    return data;
+// Basic frontend script for Cloud Security Compliance Dashboard
+// Fetches compliance data from backend and displays it
+
+async function fetchComplianceData() {
+	try {
+		const response = await fetch('http://localhost:8000/compliance');
+		if (!response.ok) {
+			throw new Error('Network response was not ok');
+		}
+		const data = await response.json();
+		displayComplianceData(data);
+	} catch (error) {
+		console.error('Error fetching compliance data:', error);
+	}
 }
 
-function renderReports(reports) {
-    const container = document.getElementById('reports');
-    container.innerHTML = '';
-    reports.forEach(report => {
-        const div = document.createElement('div');
-        div.className = 'report';
-        div.innerHTML = `
-            <h2>${report.cloud_provider} - ${report.service}</h2>
-            <div>Status: <span class="${report.compliance_status === 'Compliant' ? 'compliant' : 'non-compliant'}">${report.compliance_status}</span></div>
-            <div>Last Checked: ${report.last_checked}</div>
-            <div class="issues">
-                <strong>Issues:</strong>
-                <ul>
-                    ${report.issues.length === 0 ? '<li>None</li>' : report.issues.map(issue => `<li>${issue}</li>`).join('')}
-                </ul>
-            </div>
-        `;
-        container.appendChild(div);
-    });
+function displayComplianceData(data) {
+	const container = document.getElementById('compliance-container');
+	if (!container) return;
+	container.innerHTML = '';
+	data.forEach(check => {
+		const div = document.createElement('div');
+		div.textContent = `${check.name}: ${check.passed ? 'Passed' : 'Failed'}`;
+		container.appendChild(div);
+	});
 }
 
-fetchComplianceReports().then(renderReports).catch(err => {
-    document.getElementById('reports').innerHTML = '<p style="color:red;">Failed to load reports. Is the backend running?</p>';
-});
+// Call fetch on page load
+window.onload = fetchComplianceData;
